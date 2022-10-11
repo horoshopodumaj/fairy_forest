@@ -7,6 +7,9 @@
 :root {
     --black: #010101;
     --white: #fff;
+    --yellow: #e7e7e0;
+    --yellow-2: #9e7d35;
+    --index: calc(1vw + 1vh);
 }
 @font-face {
     font-family: raleway_f;
@@ -20,7 +23,6 @@
 
 body {
     background-color: var(--black);
-    color: var(--white);
     font-family: raleway_f, sans-serif;
     line-height: 1.55;
 }
@@ -45,9 +47,12 @@ body {
     position: absolute;
     background-size: cover;
     background-position: center;
+    will-change: transform;
+    z-index: 2;
 }
 .layers__base {
     transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    z-index: 0;
 }
 
 .layers__middle {
@@ -56,6 +61,27 @@ body {
 
 .layers__front {
     transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+}
+
+.layers__header {
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    will-change: transform;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--yellow);
+    text-shadow: 0 0 15px var(--yellow-2);
+}
+
+.layers__title {
+    font-size: calc(var(--index) * 2.5);
+    letter-spacing: calc(var(--index) / 2.25);
+}
+
+.layers__caption {
+    font-size: calc(var(--index) / 1.175);
+    letter-spacing: calc(var(--index) / 3.5);
+    margin-top: calc(var(--index) * -0.75);
 }
 
 .main-article {
